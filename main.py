@@ -1,6 +1,4 @@
-# ============================
 #  FONCTION : Création du login
-# ============================
 
 def creation_login(prenom: str, nom: str):
 
@@ -22,11 +20,7 @@ def creation_login(prenom: str, nom: str):
 
     return login
 
-
-
-# ============================
-#  GÉNÉRATION MOT DE PASSE
-# ============================
+#  GÉNÉRATION MOT DE PASS
 
 import random
 import hashlib
@@ -40,37 +34,25 @@ def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
 
+liste_users = []   # liste d'utilisateurs pour tester avant CSV
 
-# ============================
-#  STRUCTURE DE STOCKAGE
-# ============================
-
-users = []   # liste d'utilisateurs pour tester avant CSV
-
-
-
-# ============================
-#  FONCTION : Créer un utilisateur
-# ============================
+#  FONCTION : Créer un utilisateu
 
 def creer_utilisateur():
-    print("\n--- Création utilisateur ---")
-
+    print("--- Création utilisateur ---")
     prenom = input("Prénom : ")
     nom = input("Nom : ")
-    email = input("Email : ")
 
-    # Utilisation de TA fonction login
-    login = creation_login(prenom, nom)
+    login = creation_login(prenom, nom)                                     # Utilisation de la fonction login
 
-    print(f"✔ Login généré : {login}")
+    print("Login généré : ", login)
 
-    # ROLE
+    # Sélection du rôle
     print("Rôles disponibles : superadmin / admin / user")
     role = input("Rôle : ").lower()
 
     if role not in ("superadmin", "admin", "user"):
-        print("❌ Rôle invalide.")
+        print("Rôle invalide.")
         return
 
     # SITE uniquement pour admin
@@ -79,12 +61,12 @@ def creer_utilisateur():
         site = input("Site : ").lower()
 
         if site not in ("marseille", "rennes", "grenoble"):
-            print("❌ Site invalide.")
+            print("Site invalide.")
             return
     else:
         site = None
 
-    # MOT DE PASSE
+    # Initialisation password
     pwd = generate_password()
     pwd_hash = hash_password(pwd)
 
@@ -92,27 +74,23 @@ def creer_utilisateur():
     user = {
         "prenom": prenom,
         "nom": nom,
-        "email": email,
         "login": login,
         "role": role,
         "site": site,
-        "password_hash": pwd_hash
+        "Mot de passe ": pwd_hash
     }
 
-    users.append(user)
+    liste_users.append(user)                                      #Ajout de 
 
-    print("\n✔ Utilisateur créé avec succès !")
+    print("✔ Utilisateur créé avec succès !")
     print("Login :", login)
     print("Mot de passe temporaire :", pwd)
 
 
-
-# ============================
-#  MINI-MENU POUR TESTER
-# ============================
+#  MINI-MENU POUR TESTE
 
 while True:
-    print("\n=== MENU ===")
+    print("--- MENU ---")
     print("1 - Créer un utilisateur")
     print("2 - Afficher la liste des utilisateurs")
     print("0 - Quitter")
@@ -123,8 +101,8 @@ while True:
         creer_utilisateur()
 
     elif choix == "2":
-        print("\n--- LISTE DES UTILISATEURS ---")
-        for u in users:
+        print("--- LISTE DES UTILISATEURS ---")
+        for u in liste_users:
             print(u)
 
     elif choix == "0":
@@ -132,4 +110,4 @@ while True:
         break
 
     else:
-        print("❌ Choix invalide.")
+        print("Choix invalide.")
