@@ -12,22 +12,24 @@ def creation_login(prenom: str, nom: str):
 
     liste_prenoms = prenom.split()
 
-    # Récupération des initiales
-    initiales = "".join([pldp[0] for pldp in liste_prenoms])
+    initiales = "".join([pldp[0] for pldp in liste_prenoms])         # Récupération des initiales, pldp = 1ère lettre du prénom
 
-    # Construction du login
-    login = initiales + "." + nom
+    login = initiales + "." + nom                                   # Construction du login
 
     return login
 
 #  GÉNÉRATION MOT DE PASSE
 
-import random
-import hashlib
+import random                                                       # import module sélection aléatoire
+import hashlib                                                      # import module de hashage
+import string                                                       # import module string
 
-def generate_password():
-    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&?"
-    pwd = "".join(random.choice(chars) for _ in range(10))
+def generate_password(taille=10):                                   # création fonction génération mot de passe selon                          
+    char=string.ascii_letters+string.digits+string.punctuation      # présentation normes du mot de passe
+                                                                                    # string.ascii_letters
+                                                                                    # string.digits
+                                                                                    # string.punctuation
+    pwd = "".join(random.choice(char) for _ in range(taille))      # sélection de 10 chaîne de caractère aléatoire
     return pwd
 
 def hash_password(password):
@@ -43,7 +45,7 @@ def creer_utilisateur():
     prenom = input("Prénom : ")
     nom = input("Nom : ")
 
-    login = creation_login(prenom, nom)                                     # Utilisation de la fonction login
+    login = creation_login(prenom, nom)                             # Utilisation de la fonction login
 
     print("Login généré : ", login)
 
