@@ -18,7 +18,7 @@ def creation_login(prenom: str, nom: str):
 
     return login
 
-#  Fonction de génération du mot de passe puis du hash
+#  GÉNÉRATION MOT DE PASSE
 
 import random                                                       # import module sélection aléatoire
 import hashlib                                                      # import module de hashage
@@ -35,7 +35,7 @@ def generate_password(taille=10):                                   # création 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
-liste_users = []                                                    # liste d'utilisateurs pour tester avant CSV
+liste_users = []
 
 #  FONCTION : Créer un utilisateu
 def creation_user():
@@ -87,7 +87,7 @@ def creation_user():
     print("Mot de passe temporaire :", pwd)
 
 
-#  MINI-MENU POUR TESTE
+# MINI-MENU POUR TESTE
 
 while True:
     print("--- MENU ---")
