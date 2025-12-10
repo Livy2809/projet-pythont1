@@ -90,7 +90,7 @@ def creer_utilisateur():
 
 
 # MINI-MENU POUR TESTE
-if __name__ == "__main__":
+
     while True:
         print("--- MENU ---")
         print("1 - Créer un utilisateur")
