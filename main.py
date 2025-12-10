@@ -89,28 +89,27 @@ def creer_utilisateur():
     print("Mot de passe temporaire :", pwd)
 
 
-#  MINI-MENU POUR TESTE
+# MINI-MENU POUR TESTE
+if __name__ == "__main__":
+    while True:
+        print("--- MENU ---")
+        print("1 - Créer un utilisateur")
+        print("2 - Afficher la liste des utilisateurs")
+        print("0 - Quitter")
 
-while True:
-    print("--- MENU ---")
-    print("1 - Créer un utilisateur")
-    print("2 - Afficher la liste des utilisateurs")
-    print("0 - Quitter")
+        choix = input("Votre choix : ")
 
-    choix = input("Votre choix : ")
+        if choix == "1":
+            creer_utilisateur()
 
-    if choix == "1":
-        creer_utilisateur()
+        elif choix == "2":
+            print("--- LISTE DES UTILISATEURS ---")
+            for u in liste_users:
+                print(u)
 
-    elif choix == "2":
-        print("--- LISTE DES UTILISATEURS ---")
-        for u in liste_users:
-            print(u)
+        elif choix == "0":
+            print("Fermeture du programme.")
+            break
 
-    elif choix == "0":
-        print("Fermeture du programme.")
-        break
-
-    else:
-        print("Choix invalide.")
-
+        else:
+            print("Choix invalide.")
