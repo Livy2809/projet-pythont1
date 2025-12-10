@@ -21,7 +21,6 @@ def creation_login(prenom: str, nom: str):
 
     return login
 
-
 # ---- Programme principale ----
 
     prenom = input("Entrez le prénom : ")

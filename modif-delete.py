@@ -26,4 +26,3 @@ def mdf_delete_login(login, choix):
         print("Choix invalide.")
 
     return login
-
