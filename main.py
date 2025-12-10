@@ -38,7 +38,7 @@ def hash_password(password):
 liste_users = []                                                    # liste d'utilisateurs pour tester avant CSV
 
 #  FONCTION : Créer un utilisateu
-def creer_utilisateur():
+def creation_user():
     print("--- Création utilisateur ---")
     prenom = input("Prénom : ")
     nom = input("Nom : ")
@@ -48,16 +48,16 @@ def creer_utilisateur():
     print("Login généré : ", login)
 
     # Sélection du rôle
-    print("Rôles disponibles : superadmin / admin / user")
+    print("Rôles disponibles : admin / user")
     role = input("Rôle : ").lower()
 
-    if role not in ("superadmin", "admin", "user"):
+    if role not in ("admin", "user"):
         print("Rôle invalide.")
         return
 
-    # SITE uniquement pour admin
+    # Site uniquement pour admin
     if role == "admin":
-        print("Sites disponibles : marseille / rennes / grenoble")
+        print("Sites disponibles : paris / marseille / rennes / grenoble")
         site = input("Site : ").lower()
 
         if site not in ("marseille", "rennes", "grenoble"):
@@ -77,12 +77,12 @@ def creer_utilisateur():
         "login": login,
         "role": role,
         "site": site,
-        "Mot de passe ": pwd_hash
+        "Mot de passe ": pwd_hash,
     }
 
-    liste_users.append(user)                                      #Ajout de 
+    liste_users.append(user)                                      #Ajout de la variable user à liste
 
-    print("✔ Utilisateur créé avec succès !")
+    print("Utilisateur créé avec succès !")
     print("Login :", login)
     print("Mot de passe temporaire :", pwd)
 
@@ -98,7 +98,7 @@ while True:
     choix = input("Votre choix : ")
 
     if choix == "1":
-        creer_utilisateur()
+        creation_user()
 
     elif choix == "2":
         print("--- LISTE DES UTILISATEURS ---")
