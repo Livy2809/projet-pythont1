@@ -35,12 +35,10 @@ def generate_password(taille=10):                                   # création 
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
+liste_users = []
 
-liste_users = []   # liste d'utilisateurs
-
-#  FONCTION : Créer un utilisateur
-
-def creer_utilisateur():
+#  FONCTION : Créer un utilisateu
+def creation_user():
     print("--- Création utilisateur ---")
     prenom = input("Prénom : ")
     nom = input("Nom : ")
@@ -50,16 +48,16 @@ def creer_utilisateur():
     print("Login généré : ", login)
 
     # Sélection du rôle
-    print("Rôles disponibles : superadmin / admin / user")
+    print("Rôles disponibles : admin / user")
     role = input("Rôle : ").lower()
 
-    if role not in ("superadmin", "admin", "user"):
+    if role not in ("admin", "user"):
         print("Rôle invalide.")
         return
 
-    # SITE uniquement pour admin
+    # Site uniquement pour admin
     if role == "admin":
-        print("Sites disponibles : marseille / rennes / grenoble")
+        print("Sites disponibles : paris / marseille / rennes / grenoble")
         site = input("Site : ").lower()
 
         if site not in ("marseille", "rennes", "grenoble"):
@@ -79,37 +77,37 @@ def creer_utilisateur():
         "login": login,
         "role": role,
         "site": site,
-        "Mot de passe ": pwd_hash
+        "Mot de passe ": pwd_hash,
     }
 
-    liste_users.append(user)                                      #Ajout de 
+    liste_users.append(user)                                      #Ajout de la variable user à liste
 
-    print("✔ Utilisateur créé avec succès !")
+    print("Utilisateur créé avec succès !")
     print("Login :", login)
     print("Mot de passe temporaire :", pwd)
 
 
 # MINI-MENU POUR TESTE
 
-    while True:
-        print("--- MENU ---")
-        print("1 - Créer un utilisateur")
-        print("2 - Afficher la liste des utilisateurs")
-        print("0 - Quitter")
+while True:
+    print("--- MENU ---")
+    print("1 - Créer un utilisateur")
+    print("2 - Afficher la liste des utilisateurs")
+    print("0 - Quitter")
 
-        choix = input("Votre choix : ")
+    choix = input("Votre choix : ")
 
-        if choix == "1":
-            creer_utilisateur()
+    if choix == "1":
+        creation_user()
 
-        elif choix == "2":
-            print("--- LISTE DES UTILISATEURS ---")
-            for u in liste_users:
-                print(u)
+    elif choix == "2":
+        print("--- LISTE DES UTILISATEURS ---")
+        for u in liste_users:
+            print(u)
 
-        elif choix == "0":
-            print("Fermeture du programme.")
-            break
+    elif choix == "0":
+        print("Fermeture du programme.")
+        break
 
-        else:
-            print("Choix invalide.")
+    else:
+        print("Choix invalide.")

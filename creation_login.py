@@ -17,14 +17,8 @@ def creation_login(prenom: str, nom: str):
     initiales = "".join([pldp[0] for pldp in liste_prenoms])            #pldp = première lettre du prénom
 
     # Construction du login
-    login = f"{initiales}.{nom}"
+    login = initiales + "." + nom 
 
     return login
 
-# ---- Programme principale ----
-
-    prenom = input("Entrez le prénom : ")
-    nom = input("Entrez le nom : ")
-
-    login = creation_login(prenom, nom)
-    print(f"Le login créée est : {login}")
+#creation_login()                                                        #Pour test fonction
