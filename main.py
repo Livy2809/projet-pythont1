@@ -116,7 +116,7 @@ def authentification():
         mdp_hash = hash_password(mdp)
 
         if mdp_hash == user_log["password_hash"]:                                   #vérification du mot de passe correct
-            print("Connexion réussie ! Bienvenue " + utilisateur["prenom"])
+            print("Connexion réussie ! Bienvenue " + user_log["prenom"])
             return user_log  # Retourne l'user logé connecté
         else:
             tentative += 1

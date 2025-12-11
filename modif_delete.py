@@ -1,4 +1,5 @@
-from main import liste_users  # récup liste des users
+# from main import liste_users  # récup liste des users
+# supprimer car liste_user existe pour test
 
 # Utilisateur test
 liste_users.append({
@@ -17,7 +18,7 @@ def delete_login(login, choix):
             if user["login"] == login:
                 while True:
                     print("--- Modifier utilisateur ---")
-                    print("1 - Login")
+                    print("1 - Login")  
                     print("2 - Rôle")
                     print("3 - Site")
                     print("0 - Terminer modifications")
