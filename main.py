@@ -1,3 +1,5 @@
+from modif_delete import delete_login
+
 #  FONCTION : Création du login
 
 def creation_login(prenom: str, nom: str):

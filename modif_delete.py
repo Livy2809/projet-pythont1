@@ -22,7 +22,7 @@ def delete_login(login, choix):
                     print("3 - Site")
                     print("0 - Terminer modifications")
 
-                    mod = input("Que voulez-vous modifier ? ")
+                    mod = input("Que voulez-vous modifier ? ") 
 
                     if mod == "1":
                         nouveau = input("Nouveau login : ")
