@@ -118,7 +118,7 @@ def authentification():
         mdp_hash = hash_password(mdp)
 
         if mdp_hash == user_log["password_hash"]:                                   #vérification du mot de passe correct
-            print("Connexion réussie ! Bienvenue " + utilisateur["prenom"])
+            print("Connexion réussie ! Bienvenue " + user_log["prenom"])
             return user_log  # Retourne l'user logé connecté
         else:
             tentative += 1
@@ -134,7 +134,7 @@ def modif_delete_login(login, choix):
 
     if choix == "1":  # Modifier le user
         for user in liste_users:
-            if user["login"] == login:
+            if user["login"] == login: #recherche du user correspondant dans le dico
                 while True:
                     print("--- Modifier utilisateur ---")
                     print("1 - Login")
@@ -144,12 +144,12 @@ def modif_delete_login(login, choix):
 
                     mod = input("Que voulez-vous modifier ? ")
 
-                    if mod == "1":
+                    if mod == "1":                                 #modif login
                         nouveau = input("Nouveau login : ")
                         user["login"] = nouveau
                         print("Login modifié :", nouveau)
 
-                    elif mod == "2":
+                    elif mod == "2":                               #modif rôle
                         nouveau = input("Nouveau rôle (superadmin/admin/user) : ").lower()
                         if nouveau in ("superadmin","admin","user"):
                             user["role"] = nouveau
@@ -158,7 +158,7 @@ def modif_delete_login(login, choix):
                             print("Rôle invalide.")
 
                     elif mod == "3":
-                        if user["role"] == "admin":
+                        if user["role"] == "admin":         #modif site seulement user est admin
                             nouveau = input("Nouveau site (marseille/rennes/grenoble) : ").lower()
                             if nouveau in ("marseille","rennes","grenoble"):
                                 user["site"] = nouveau
